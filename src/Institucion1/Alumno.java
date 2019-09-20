@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Alumno extends Persona{//SUBCLASE O CLASE HIJA
 
-	    private final int legajo;
+	    public final int legajo;
 
-	    public Alumno(String nombre, String apellido, int legajo) {
+	    public Alumno(int legajo, String nombre, String apellido) {
 	        super(nombre, apellido);
 	        this.legajo = legajo;
 	    }

@@ -7,7 +7,7 @@ public class Institucion {
 	
     private String nombreInstitucion;
     
-    private final ArrayList<Alumno> alumnos ;
+    public final ArrayList<Alumno> alumnos ;
 
 	public Institucion(String nombreInstitucion) {
 		
@@ -32,7 +32,7 @@ public class Institucion {
         String nombre = teclado.next();
         System.out.println("Ingrese legajo:");
         int codigo = teclado.nextInt();
-        Alumno alumnon = new Alumno(nombre,nombre,codigo);
+        Alumno alumnon = new Alumno(codigo,nombre,nombre);
         alumnos.add(alumnon);
     }
 	
@@ -44,10 +44,22 @@ public class Institucion {
 		 System.out.println("Ingrese legajo de Alumno a eliminar:");
 	        int legajo = teclado.nextInt();
 	        
-	       for(Alumno o : alumnos){
-	    	   
-	    	   
+	      for (int i = 0; i < alumnos.size(); i++) {
+	    	  
+	    int	a =	alumnos.get(i).legajo ;
 	    	
+	    	if (a == legajo) {
+	    		
+	    		
+	    		alumnos.remove(i);
+	    		
+	    	}
+	        
+	}
+	}
+	
+	
+	
 	
 	 public void imprimirInstitucion(){
 	        
