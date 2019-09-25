@@ -1,6 +1,6 @@
 package Institucion1;
 
-import java.util.Scanner;
+
 
 
 public class Alumno extends Persona{//SUBCLASE O CLASE HIJA
@@ -26,7 +26,7 @@ public class Alumno extends Persona{//SUBCLASE O CLASE HIJA
 public void imprimirAlumno(){
 	        
 	        System.out.println("------------------------------");
-	        System.out.println("Nombre Alumno "+ getNombre());
+	        System.out.println("Nombre Alumno "+ getNombre() + " " + getApellido());
 	        System.out.println("Codigo Alumno " + getLegajo());
 	        System.out.println("");
 	        
