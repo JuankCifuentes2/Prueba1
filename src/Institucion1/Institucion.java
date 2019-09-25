@@ -102,12 +102,28 @@ public class Institucion {
 	
 	
 	public void addCursoaInstitucion (){
-        System.out.println("Ingrese nombre de Curso nuevo:");
-        String nombre = teclado.next();
+        int y = -1;
         System.out.println("Ingrese codigo de curso:");
         int codigo = teclado.nextInt();
-        Curso curson = new Curso(codigo,nombre);
-        cursos.add(curson);
+        
+        
+        for (int j = 0; j < cursos.size() ; j++) {
+				    	  
+		    			    int	b = cursos.get(j).getCodigoCurso() ;
+		    			    	
+		    			    	if (b == codigo) {
+		    			    		System.out.println ("Este codigo de curso ya se encuentra registrado");
+                                                        y = y+1;
+                                                }  	
+		    		 		}	 
+		    		 if (y == -1) {	
+				    	  
+                                          System.out.println("Ingrese nombre de Curso nuevo:");
+                                                    String nombre = teclado.next();
+                                                    Curso curson = new Curso(codigo,nombre);
+                                                    cursos.add(curson);
+                                         }	
+        
 		}
 	
 	
@@ -176,7 +192,7 @@ public class Institucion {
 		 }
 		 
 	
-		 public void imprimir1Cursos(){
+		 public void imprimir2Cursos(){
 			 System.out.println("Cursos de la Institucion");
 			 System.out.println("");
 		        for(Curso o : cursos){
@@ -185,7 +201,7 @@ public class Institucion {
 		}
 		 }
 	
-		 public void imprimirCursos(){
+		 public void imprimir1Cursos(){
 			 JOptionPane.showMessageDialog(null,"\n"
 					+ "\nCursos de la Institucion");
 		        for(Curso o : cursos){
@@ -195,7 +211,21 @@ public class Institucion {
 		
 		 }
 		 
-		 
+	 public void imprimirCursos(){
+			
+		String Salida= "Cursos de la Institucion"
+				+"\n" 
+                                +"\n" ;
+                       for( int i = 0 ; i  < cursos.size(); i++){
+                        Salida += "\nCodigo Curso: "+ cursos.get(i).getCodigoCurso();
+                        Salida += "\nNombre Curso: "+ cursos.get(i).getNombreCurso();
+                        Salida += "\n";
+                       }
+                        
+                      JOptionPane.showMessageDialog(null, Salida);  
+                        
+		 }
+                 
 		 
 		 
 		 public void imprimirCursosyAlumnos(){

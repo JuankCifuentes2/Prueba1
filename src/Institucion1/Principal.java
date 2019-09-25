@@ -1,5 +1,6 @@
 package Institucion1;
 
+import java.awt.HeadlessException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -58,10 +59,10 @@ public class Principal {
 	        	
 	        	
 	        	String lectura = JOptionPane.showInputDialog(null,"************************\n"
-	        			              							+ "Elige opción:\n"
-	        			              							+ "1 - Gestión de cursos\n" 
-	        			              							+ "2 - Gestión de profesores\n" 
-	        			              							+ "3 - Gestión de alumnos \n" 
+	        			              							+ "Elige opcion:\n"
+	        			              							+ "1 - Gestion de cursos\n" 
+	        			              							+ "2 - Gestion de profesores\n" 
+	        			              							+ "3 - Gestion de alumnos \n" 
 	        			              							+ "4 - Reporte institucional\n"
 	        			              							+  "5.- Salir\n************************");
 	        	
@@ -81,7 +82,7 @@ public class Principal {
 	             	            
 	             	 
 	             	           String lectura1 = JOptionPane.showInputDialog(null,"************************\n"
-             							+ "Elige opción:\n"
+             							+ "Elige opcion:\n"
              							+ "1 Alta de Curso\n" 
              							+ "2 Baja de Curso\n" 
              							+ "3 Consulta de Cursos\n" 
@@ -108,7 +109,7 @@ public class Principal {
 	             	                        salir1 = true;
 	             	                        break;
 	             	                    default:
-	             	                        System.out.println("Solo números entre 1 y 4");
+	             	                        System.out.println("Solo nï¿½meros entre 1 y 4");
 	             	                }
 	             	            }  catch(Exception e){
 	             	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
@@ -159,10 +160,10 @@ public class Principal {
 	             	                        salir2 = true;
 	             	                        break;
 	             	                    default:
-	             	                        System.out.println("Solo números entre 1 y 4");
+	             	                        System.out.println("Solo nï¿½meros entre 1 y 4");
 	             	                }
 	             	            } catch (InputMismatchException e) {
-	             	                System.out.println("Debes insertar un número");
+	             	                System.out.println("Debes insertar un nï¿½mero");
 	             	                sn.next();
 	             	            }
 	             	        }
@@ -177,9 +178,9 @@ public class Principal {
  	                        salir = true;
  	                        break;
  	                    default:
- 	                        System.out.println("Solo números entre 1 y 4");
+ 	                     JOptionPane.showMessageDialog(null,"Solo nï¿½meros entre 1 y 4");
  	                }
- 	            } catch(Exception e){
+ 	            } catch(HeadlessException | NumberFormatException e){
  	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
  	            }
  	        }
