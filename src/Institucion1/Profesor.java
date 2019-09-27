@@ -18,15 +18,10 @@ package Institucion1;
 			return dni;
 		}
 
-		
-public void imprimirProfesor(){
-	        
-	        System.out.println("------------------------------");
-	        System.out.println("Nombre Profesor " + getNombre() + " " + getApellido());
-	        System.out.println("Codigo Profesor " + getDni());
-	        System.out.println("");
-	        
-	}
-	
+public String imprimirProfesor(){
+	return ("\n"
+	 + "\nNombre Profesor "+ getNombre()+ " " + getApellido()
+	 + "\nDni Profesor " + getDni());       
+}
 		
 }

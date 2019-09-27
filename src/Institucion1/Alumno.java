@@ -5,34 +5,23 @@ package Institucion1;
 
 public class Alumno extends Persona{//SUBCLASE O CLASE HIJA
 
-	    public final int legajo;
+	    public final int dni;
 
-	    public Alumno(int legajo, String nombre, String apellido) {
+	    public Alumno(int dni, String nombre, String apellido) {
 	        super(nombre, apellido);
-	        this.legajo = legajo;
+	        this.dni = dni;
 	    }
 
-		public int getLegajo() {
-			return legajo;
+		public int getdni() {
+			return dni;
 		}
 	
-
-		
-	                  
-	            
-		
-		
-		
-public void imprimirAlumno(){
-	        
-	        System.out.println("------------------------------");
-	        System.out.println("Nombre Alumno "+ getNombre() + " " + getApellido());
-	        System.out.println("Codigo Alumno " + getLegajo());
-	        System.out.println("");
-	        
-	}
 	
-	    
-	    
+public String imprimirAlumno(){
+	return ("\n"
+			 + "\nNombre Alumno "+ getNombre()+ " " + getApellido()
+			 + "\nDni Alumno " + getdni());       
+		}
+
 	 }
 

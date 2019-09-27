@@ -1,8 +1,8 @@
 package Institucion1;
 
 import java.awt.HeadlessException;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+
+
 
 import javax.swing.JOptionPane;
 
@@ -12,7 +12,7 @@ public class Principal {
 
 	public static void main(String[] args) {
 		
-		Scanner sn = new Scanner(System.in);
+		
 		// TODO Auto-generated method stub
 		
 		Institucion institu1 = new Institucion ("Sena");
@@ -47,29 +47,37 @@ public class Principal {
 		institu1.addProfesoraInstitucion(armando);
 		
 		
-		
-	
+		institu1.addAlumnoaInstitucion(juan);
+		institu1.addAlumnoaInstitucion(pedro);
 		
 		
 	        boolean salir = false;
-	        int opcion; //Guardaremos la opcion del usuario
+	        int opcion = 0; //Guardaremos la opcion del usuario
 	 
 	        while (!salir) {
 	        	
 	        	
 	        	
-	        	String lectura = JOptionPane.showInputDialog(null,"************************\n"
-	        			              							+ "Elige opcion:\n"
-	        			              							+ "1 - Gestion de cursos\n" 
-	        			              							+ "2 - Gestion de profesores\n" 
-	        			              							+ "3 - Gestion de alumnos \n" 
-	        			              							+ "4 - Reporte institucional\n"
-	        			              							+  "5.- Salir\n************************");
-	        	
-	        	
+	                String lectura = (String)JOptionPane.showInputDialog(
+	        			null,"Seleccione Un Opcion","INSTITUCION", JOptionPane.QUESTION_MESSAGE, null,
+	        						
+	        			new Object[] {"Elige opcion",
+      							      "1 Gestion de cursos" ,
+      						       	  "2 Gestion de profesores", 
+      							      "3 Gestion de alumnos" ,
+      							      "4 Reporte institucional",
+      							      "5 Salir"},"Administrador de instituciones educativas");
+	        			
+	                if (lectura == "1 Gestion de cursos"){opcion = 1;}
+	                if (lectura == "2 Gestion de profesores"){opcion = 2;}
+	                if (lectura == "3 Gestion de alumnos"){opcion = 3;}
+	                if (lectura == "4 Reporte institucional"){opcion = 4;}
+	                if (lectura == "5 Salir"){opcion = 5;}
+	                
+	                
 	        	try{
 				//Recoger una variable por consola
-	        	 opcion = Integer.parseInt(lectura);
+	        	 
 	        	
 	                switch (opcion) {
 	                    case 1:
@@ -108,15 +116,14 @@ public class Principal {
 	             	                    case 4:
 	             	                        salir1 = true;
 	             	                        break;
-	             	                    default:
-	             	                        System.out.println("Solo nï¿½meros entre 1 y 4");
-	             	                }
-	             	            }  catch(Exception e){
-	             	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
-	             	            }
+	             	                   default:
+	             	 	                     JOptionPane.showMessageDialog(null,"Elige una opcion");
+	             	 	                }
+	             	           } catch(HeadlessException | NumberFormatException e){
+	            	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
+	            	            }
 	             	        }
-	                    	
-	                    	
+	                  
 	                        break;
 	                    case 2:
 	                        
@@ -124,17 +131,20 @@ public class Principal {
 	             	        int opcion2; //Guardaremos la opcion del usuario
 	             	 
 	             	        while (!salir2) {
+	             	        	
+	             	        	
+	             	        	String lectura1 = JOptionPane.showInputDialog(null,"************************\n"
+             							+ "Elige opcion:\n"
+             							+ "1 Alta de Profesor\n" 
+             							+ "2 Baja de Profesor\n" 
+             							+ "3 Consulta de Profesores\n" 
+             							+ "4 Asignar Profesor a Curso\n" 
+             							+  "5 Salir\n************************");
 	             	 
-	             	            System.out.println("1 Alta de Profesor");
-	             	            System.out.println("2 Baja de Profesor");
-	             	            System.out.println("3 Consulta de Profesores");
-	             	            System.out.println("4 Asignar Profesor a Curso");
-	             	            System.out.println("5 Salir");
-	             	 
+	            
 	             	            try {
 	             	 
-	             	                System.out.println("Escribe una de las opciones");
-	             	                opcion2 = sn.nextInt();
+	             	            	opcion2 = Integer.parseInt(lectura1);
 	             	 
 	             	                switch (opcion2) {
 	             	                    case 1:
@@ -153,37 +163,88 @@ public class Principal {
 	             	                	   	int i = institu1.buscarProfesor();
 	             	                	   	if (i!=-1){
 	             	                	   		institu1.imprimirCursos();
-	        		    			    		institu1.asignarProfesor(i);
+	        		    			    		institu1.asignarProfesoraCurso(i);
 	        		    			    	}
 	             	                        break;   
 	             	                    case 5:
 	             	                        salir2 = true;
 	             	                        break;
-	             	                    default:
-	             	                        System.out.println("Solo nï¿½meros entre 1 y 4");
-	             	                }
-	             	            } catch (InputMismatchException e) {
-	             	                System.out.println("Debes insertar un nï¿½mero");
-	             	                sn.next();
-	             	            }
+	             	                   default:
+	             	 	                     JOptionPane.showMessageDialog(null,"Solo numeros entre 1 y 5");
+	             	 	                }
+	             	           } catch(HeadlessException | NumberFormatException e){
+	            	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
+	            	            }
 	             	        }
 	                    	
 	             	        
-	             	        
 	                        break;
 	                    case 3:
-	                        institu1.removeAlumnoaInstitucion();
+	                    	boolean salir3 = false;
+	             	        int opcion3; //Guardaremos la opcion del usuario
+	             	 
+	             	        while (!salir3) {
+	             	        	
+	             	        	
+	             	        	String lectura1 = JOptionPane.showInputDialog(null,"************************\n"
+             							+ "Elige opcion:\n"
+             							+ "1 Alta de Alumno\n" 
+             							+ "2 Baja de Alumno\n" 
+             							+ "3 Consulta de Alumnos\n" 
+             							+ "4 Asignar Alumnos a curso\n" 
+             							+  "5 Salir\n************************");
+	             	 
+	            
+	             	            try {
+	             	 
+	             	            	opcion3 = Integer.parseInt(lectura1);
+	             	 
+	             	                switch (opcion3) {
+	             	                    case 1:
+	             	                    	institu1.imprimirAlumnosInstitucion();;
+	             	                    	institu1.addAlumnoaInstitucion();
+	             	                        break;
+	             	                    case 2:
+	             	                    	institu1.imprimirAlumnosInstitucion();
+	             	                    	institu1.removeAlumnoaInstitucion();
+	             	                        break;
+	             	                    case 3:
+	             	                        institu1.imprimirAlumnosInstitucion(); 
+	             	                        break;
+	             	                   case 4:
+	             	                	   	institu1.imprimirAlumnosInstitucion();
+	             	                	   	int i = institu1.buscarAlumno();
+	             	                	   	if (i!=-1){
+	             	                	   		institu1.imprimirCursos();
+	        		    			    		institu1.asignarAlumnoaCurso(i);
+	        		    			    	}
+	             	                        break;
+	             	                  case 5:
+	             	                        salir3 = true;
+	             	                        break;
+	             	                   default:
+	             	 	                     JOptionPane.showMessageDialog(null,"Solo numeros entre 1 y 5");
+	             	                                   }
+	             	           } catch(HeadlessException | NumberFormatException e){
+	            	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
+	            	            	}
+	             	        	}
 	                        break;
 	                    case 4:
+	                    	institu1.imprimirCursosyAlumnos();	
+	                    	break;
+	                    	
+	                    case 5:
  	                        salir = true;
  	                        break;
  	                    default:
- 	                     JOptionPane.showMessageDialog(null,"Solo nï¿½meros entre 1 y 4");
+ 	                     JOptionPane.showMessageDialog(null,"Elige una opción");
  	                }
  	            } catch(HeadlessException | NumberFormatException e){
  	            	JOptionPane.showMessageDialog(null,"Uoop! Error!");
  	            }
+	        	 		
  	        }
-	
+	       
 	}
 }

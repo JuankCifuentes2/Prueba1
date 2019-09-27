@@ -31,49 +31,44 @@ public class Institucion {
 		this.nombreInstitucion = nombreInstitucion;
 	}
 	
+	public void addAlumnoaInstitucion (Alumno alumno){
+        alumnos.add(alumno);
+    }
+	
 	
 	public void addAlumnoaInstitucion (){
-        System.out.println("Ingrese Nombre de Nuevo Alumno:");
-        String nombre = teclado.next();
-        System.out.println("Ingrese Apellido de Nuevo Alumno:");
-        String apellido = teclado.next();
-        System.out.println("Ingrese legajo:");
-        int codigo = teclado.nextInt();
-        Alumno alumnon = new Alumno(codigo,nombre,apellido);
+        String nombre = JOptionPane.showInputDialog(null,"Ingrese Nombre de Nuevo Alumno:");
+        String apellido = JOptionPane.showInputDialog(null,"Ingrese Apellido de Nuevo Alumno:");
+        String lectura = JOptionPane.showInputDialog(null,"Ingrese dni de Nuevo Alumno");			
+        int dni = Integer.parseInt(lectura);
+        Alumno alumnon = new Alumno(dni,nombre,apellido);
         alumnos.add(alumnon);
     }
 	
 	    
 	public void removeAlumnoaInstitucion(){
-		
-		 System.out.println("Ingrese legajo de Alumno a eliminar:");
-	        int legajo = teclado.nextInt();
-	        
+		String lectura = JOptionPane.showInputDialog(null,"Ingrese dni de Alumno a eliminar");			
+        int dni = Integer.parseInt(lectura);
+	     
 	      for (int i = 0; i < alumnos.size(); i++) {
 	    	  
-	    	  int	a =	alumnos.get(i).legajo ;
+	    	  int	a =	alumnos.get(i).dni ;
 	    	
-	    	  if (a == legajo) {
-	    		
+	    	  if (a == dni) {
 	    		alumnos.remove(i);
 	    	}
 	      }
 		}
 	
-	
 	public void addProfesoraInstitucion (Profesor profesor){
         profesores.add(profesor);
     }
 	
-	
-	
 	public void addProfesoraInstitucion (){
-        System.out.println("Ingrese Nombre de Nuevo Profesor:");
-        String nombre = teclado.next();
-        System.out.println("Ingrese Apellido de Nuevo Profesor:");
-        String apellido = teclado.next();
-        System.out.println("Ingrese dni:");
-        int dni = teclado.nextInt();
+        String nombre = JOptionPane.showInputDialog(null,"Ingrese Nombre de Nuevo Profesor:");
+        String apellido = JOptionPane.showInputDialog(null,"Ingrese Apellido de Nuevo Profesor:");
+        String lectura = JOptionPane.showInputDialog(null,"Ingrese dni de Nuevo Profesor");			
+        int dni = Integer.parseInt(lectura);
         Profesor profesor = new Profesor(dni,nombre,apellido);
         profesores.add(profesor);
     }
@@ -81,21 +76,20 @@ public class Institucion {
 	
 	public void removeProfesoraInstitucion(){
 	
-		System.out.println("Ingrese dni del Profesor a eliminar:");
-       int dni = teclado.nextInt();
+		String lectura = JOptionPane.showInputDialog(null,"Ingrese dni del Profesor a eliminar");			
+        int dni = Integer.parseInt(lectura);
        
-       for (int i = 0; i < profesores.size(); i++) {
+        	for (int i = 0; i < profesores.size(); i++) {
    	  
-    	   int	a =	profesores.get(i).dni ;
+        		int	a =	profesores.get(i).dni ;
    	
-    	   if (a == dni) {
+        		if (a == dni) {
     		   profesores.remove(i);
-    	   	}
-       		}
-		}
+        		}
+       			}
+			}
+	
 
-	
-	
 	public void addACursoaInstitucion (Curso curso){
 	        cursos.add(curso);
 	    }
@@ -103,40 +97,33 @@ public class Institucion {
 	
 	public void addCursoaInstitucion (){
         int y = -1;
-        System.out.println("Ingrese codigo de curso:");
-        int codigo = teclado.nextInt();
-        
+        String lectura1 = JOptionPane.showInputDialog(null,"Ingrese codigo de curso");			
+        int codigo = Integer.parseInt(lectura1);
         
         for (int j = 0; j < cursos.size() ; j++) {
 				    	  
-		    			    int	b = cursos.get(j).getCodigoCurso() ;
+		    int	b = cursos.get(j).getCodigoCurso() ;
 		    			    	
-		    			    	if (b == codigo) {
-		    			    		System.out.println ("Este codigo de curso ya se encuentra registrado");
-                                                        y = y+1;
-                                                }  	
-		    		 		}	 
-		    		 if (y == -1) {	
-				    	  
-                                          System.out.println("Ingrese nombre de Curso nuevo:");
-                                                    String nombre = teclado.next();
-                                                    Curso curson = new Curso(codigo,nombre);
-                                                    cursos.add(curson);
-                                         }	
+		    if (b == codigo) {
+		    					JOptionPane.showMessageDialog(null,"Este codigo de curso ya existe");
+                                  y = y+1;
+                                   }  	
+		    		 				}	 
+        						if (y == -1) {	
+				    	   String nombre = JOptionPane.showInputDialog(null,"Ingrese nombre de Curso nuevo:");	
+                           Curso curson = new Curso(codigo,nombre);
+                             cursos.add(curson);
+                                   }	
         
 		}
 	
-	
 		
 	public void removeCursoaInstitucion(){
-			 System.out.println("Ingrese codigo de Curso a eliminar:");
-		        int codigo = teclado.nextInt();
-		        
-		      for (int i = 0; i < cursos.size(); i++) {
-		    	  
+		String lectura = JOptionPane.showInputDialog(null,"Ingrese codigo de Curso a eliminar:");			
+        int codigo = Integer.parseInt(lectura);
+			for (int i = 0; i < cursos.size(); i++) {
 		    	  int	a =	cursos.get(i).getCodigoCurso() ;
-		    	
-		    	if (a == codigo) {
+		    	  if (a == codigo) {
 		    		cursos.remove(i);
 		    	}
 		      }
@@ -146,10 +133,10 @@ public class Institucion {
 		 
 	 public int buscarProfesor(){
 			 int x = 0;
-			 int y = -1;	
-			 System.out.println("Ingrese dni de Profesor a asignar:");
-		        int dni = teclado.nextInt();
-		        
+			 int y = -1;
+			 String lectura = JOptionPane.showInputDialog(null,"Ingrese dni de Profesor a asignar:");			
+		        int dni = Integer.parseInt(lectura);
+			
 		      for (int i = 0; i < profesores.size() ; i++) {
 		    	  
 		    	  	int	a =	profesores.get(i).getDni() ;
@@ -159,17 +146,16 @@ public class Institucion {
 		    			    	}	    	
 		    				}
 		      	if (x == 0) {
-		    	  System.out.println ("Este dni no esta registrado");
+		      		JOptionPane.showMessageDialog(null,"Este dni no esta registrado");
 		      		}
 		      return y;
 		    }
 		 
 		
-	public void asignarProfesor(int i){
+	public void asignarProfesoraCurso(int i){
 			 		int y = -1;
-		    		System.out.println("Ingrese Curso a asignar profesor elegido");
-		    		int codigo = teclado.nextInt();
-		    		
+			 		 String lectura = JOptionPane.showInputDialog(null,"Ingrese Curso a asignar profesor elegido");			
+				        int codigo = Integer.parseInt(lectura);
 		    		
 		    		 for (int j = 0; j < cursos.size() ; j++) {
 				    	  
@@ -181,87 +167,104 @@ public class Institucion {
 		    			    	}  	
 		    		 		}	 
 		    		 if (y == -1) {	
-				    	  System.out.println ("Este codigo de curso no se encuentra registrado");
-		    		 
+		    			 JOptionPane.showMessageDialog(null,"Este codigo de curso no se encuentra registrado");
+				   
 		    			}	 
 		    	   }
 		    	
 		   
-		 public void imprimir1Profesor(int a){
-			 profesores.get(a).imprimirProfesor();
-		 }
-		 
-	
-		 public void imprimir2Cursos(){
-			 System.out.println("Cursos de la Institucion");
-			 System.out.println("");
-		        for(Curso o : cursos){
-		        	
-		            o.imprimirCurso();        
-		}
-		 }
-	
-		 public void imprimir1Cursos(){
-			 JOptionPane.showMessageDialog(null,"\n"
-					+ "\nCursos de la Institucion");
-		        for(Curso o : cursos){
-		        	
-		            o.imprimirCurso();        
-		}
+	 public int buscarAlumno(){
+		 int x = 0;
+		 int y = -1;
+		 String lectura = JOptionPane.showInputDialog(null,"Ingrese dni de Alumno a asignar:");			
+	        int dni = Integer.parseInt(lectura);
 		
-		 }
+	      for (int i = 0; i < alumnos.size() ; i++) {
+	    	  
+	    	  	int	a =	alumnos.get(i).getdni() ;
+	    	  	if (a == dni) {
+	    					y = i;
+	    					x = x + 1;
+	    			    	}	    	
+	    				}
+	      	if (x == 0) {
+	      		JOptionPane.showMessageDialog(null,"Este dni no esta registrado");
+	      		}
+	      return y;
+	    }
+	
+	
+	 public void asignarAlumnoaCurso(int i){
+	 		int y = -1;
+	 		 String lectura = JOptionPane.showInputDialog(null,"Ingrese Curso a asignar Alumno elegido");			
+		        int codigo = Integer.parseInt(lectura);
+ 		
+ 		 for (int j = 0; j < cursos.size() ; j++) {
+		    	  
+ 			    int	b =	cursos.get(j).getCodigoCurso() ;
+ 			    	
+ 			    	if (b == codigo) {
+ 			    		y = y +1 ;
+ 			    		cursos.get(j).addAlumnoaCurso(alumnos.get(i));;
+ 			    	}  	
+ 		 		}	 
+ 		 if (y == -1) {	
+ 			 JOptionPane.showMessageDialog(null,"Este codigo de curso no se encuentra registrado");
+		   
+ 			}	 
+ 	   }
+	
 		 
-	 public void imprimirCursos(){
-			
+	 public void imprimirCursos(){	
 		String Salida= "Cursos de la Institucion"
-				+"\n" 
-                                +"\n" ;
-                       for( int i = 0 ; i  < cursos.size(); i++){
-                        Salida += "\nCodigo Curso: "+ cursos.get(i).getCodigoCurso();
-                        Salida += "\nNombre Curso: "+ cursos.get(i).getNombreCurso();
-                        Salida += "\n";
-                       }
-                        
-                      JOptionPane.showMessageDialog(null, Salida);  
-                        
+						+"\n" 
+                        +"\n";
+                       
+					for(Curso o : cursos){
+						Salida += o.imprimirCurso(); 
+					}
+                      JOptionPane.showMessageDialog(null, Salida);            
 		 }
                  
-		 
-		 
+	 
 		 public void imprimirCursosyAlumnos(){
-			 
-			 System.out.println("Institucion ");
-		        System.out.println("Nombre Institucion "+ nombreInstitucion);
+			 String Salida= "Institucion "
+					 		+"\n"
+					 		+ nombreInstitucion;
+					 		
 		        for(Curso o : cursos){
-		            o.imprimiralumnosCurso();        
+		            Salida += "\n" + o.imprimiralumnosCurso();           
 		}
+		        JOptionPane.showMessageDialog(null, Salida);
 	 }
 		 
 		  
 		 
 	 public void imprimirAlumnosInstitucion(){
 	        
-	        System.out.println("Institucion ");
-	        System.out.println("Nombre Institucion "+ nombreInstitucion);
-	        System.out.println("Alumnos de la institucion");
+		 String Salida= "Alumnos de la Institucion"
+						+"\n" 
+						+"\n";
 	        
 	        for(Alumno o : alumnos){
-	             o.imprimirAlumno();     
-	}
-	 }
+				Salida += o.imprimirAlumno(); 
+			}
+              JOptionPane.showMessageDialog(null, Salida);            
+	 	}
 	 
 	 
-	 public void imprimirProfesoresInstitucion(){
-		        
-		        System.out.println("Institucion ");
-		        System.out.println("Nombre Institucion "+ nombreInstitucion);
-		        System.out.println("Profesores de la institucion");
-		        
-		        for(Profesor o : profesores){
-		            o.imprimirProfesor();
-		        
-		        } 
-		        }	
+	 
+	 public void imprimirProfesoresInstitucion(){	
+			String Salida= "Profesores de la Institucion"
+							+"\n" 
+	                        +"\n";
+	                       
+						for(Profesor o : profesores){
+							Salida += o.imprimirProfesor(); 
+						}
+	                      JOptionPane.showMessageDialog(null, Salida);            
+			 }
+	 
 	        }
     
 	

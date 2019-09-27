@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+
 public class Curso {
 	private int codigoCurso;
     private String nombreCurso;
@@ -38,7 +39,13 @@ public class Curso {
     
 	
 	 public void addAlumnoaCurso (Alumno alumno){
-	        alumnoscurso.add(alumno);
+		 		if (alumnoscurso.size()<10) {
+		 			alumnoscurso.add(alumno);
+		 		}
+		 		else {
+		 			JOptionPane.showMessageDialog(null,"Este curso se encuentra lleno con 10 alumnos");
+					
+				}
 	    }
 	
 	 
@@ -48,56 +55,35 @@ public class Curso {
 
 	 
 	 
-	 
-	 
-	 
 	public void setProfesor(Profesor profesor) {
 		this.profesor = profesor;
 	}
 
 
 	 
-	 public void imprimir1Curso(){
-	        
-		 JOptionPane.showMessageDialog(null,"\n"
+	 public String imprimirCurso(){
+		return ("\n"
 		 + "\nCodigo Curso "+ getCodigoCurso()
 		 + "\nNombre Curso " + getNombreCurso()
-		 + "\nProfesor" + getProfesor().getApellido());
-	        
+		 + "\nProfesor" + getProfesor().getApellido());        
 	}
 	 
-	 
-	 public void imprimirCurso(){
-	        
-	        System.out.println("------------------------------");
-	        System.out.println("Codigo Curso "+ getCodigoCurso());
-	        System.out.println("Nombre Curso " + getNombreCurso());
-	        System.out.println("Profesor" + getProfesor().getApellido());
-	        
-	}
-	 
-	 
-	 public void imprimiralumnosCurso(){
-		 
-		 System.out.println("**************************************************************************************");
-		
-	        System.out.println("Nombre Curso "+ nombreCurso);
-	          System.out.println("");
-	        System.out.println("Codigo Curso " + codigoCurso);
-	        System.out.println("");
-	        System.out.println("Alumnos del curso");
-	        
+	
+	 public String imprimiralumnosCurso(){
+		 String Salida = "--------------------------------"
+				 		+ "\nNombre Curso"+ nombreCurso
+						+ "\nCodigo Curso" + codigoCurso
+						+ "\nProfesor asignado " + getProfesor().getApellido()
+						+ "\nAlumnos del curso";
+						
 	        for(Alumno o : alumnoscurso){
 	            
-	            System.out.println(alumnoscurso.indexOf(o)+1);
+	        	Salida += "\n" + o.imprimirAlumno();
 	           
+	        		}
 	        
-	            o.imprimirAlumno();;
-	        
-
-	}
-	
-	 
+	        return Salida;
+	 		 
 	 }
 	
 }
