@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 
-public class Curso {
+public class Curso implements Presentacion {
 	private int codigoCurso;
     private String nombreCurso;
     private Profesor profesor;
@@ -69,7 +69,7 @@ public class Curso {
 	}
 	 
 	
-	 public String imprimiralumnosCurso(){
+	 public String imprimirAlumnos(){
 		 String Salida = "--------------------------------"
 				 		+ "\nNombre Curso"+ nombreCurso
 						+ "\nCodigo Curso" + codigoCurso
@@ -78,7 +78,7 @@ public class Curso {
 						
 	        for(Alumno o : alumnoscurso){
 	            
-	        	Salida += "\n" + o.imprimirAlumno();
+	        	Salida += "\n" + o.imprimirAlumnos();
 	           
 	        		}
 	        

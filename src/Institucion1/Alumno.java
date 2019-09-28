@@ -3,7 +3,7 @@ package Institucion1;
 
 
 
-public class Alumno extends Persona{//SUBCLASE O CLASE HIJA
+public class Alumno extends Persona implements Presentacion {//SUBCLASE O CLASE HIJA
 
 	    public final int dni;
 
@@ -17,7 +17,7 @@ public class Alumno extends Persona{//SUBCLASE O CLASE HIJA
 		}
 	
 	
-public String imprimirAlumno(){
+public String imprimirAlumnos(){
 	return ("\n"
 			 + "\nNombre Alumno "+ getNombre()+ " " + getApellido()
 			 + "\nDni Alumno " + getdni());       

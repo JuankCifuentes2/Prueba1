@@ -52,16 +52,14 @@ public class Principal {
 		
 		
 	        boolean salir = false;
-	        int opcion = 0; //Guardaremos la opcion del usuario
+	         //Guardaremos la opcion del usuario
 	 
 	        while (!salir) {
-	        	
-	        	
-	        	
+	        	int opcion = 5;
 	                String lectura = (String)JOptionPane.showInputDialog(
 	        			null,"Seleccione Un Opcion","INSTITUCION", JOptionPane.QUESTION_MESSAGE, null,
 	        						
-	        			new Object[] {"Elige opcion",
+	        			new Object[] {
       							      "1 Gestion de cursos" ,
       						       	  "2 Gestion de profesores", 
       							      "3 Gestion de alumnos" ,
@@ -78,29 +76,32 @@ public class Principal {
 	        	try{
 				//Recoger una variable por consola
 	        	 
-	        	
 	                switch (opcion) {
 	                    case 1:
 	                    	
 	                    	boolean salir1 = false;
-	             	        int opcion1; //Guardaremos la opcion del usuario
+	             	         //Guardaremos la opcion del usuario
 	             	 
 	             	        while (!salir1) {
+	             	        	int opcion1=4;
+	             	        	
+	             	        	String lectura1 = (String)JOptionPane.showInputDialog(
+	            	        			null,"Seleccione Un Opcion","CURSOS", JOptionPane.QUESTION_MESSAGE, null,
+	            	        						
+	            	        			new Object[] {
+	                  							      "1 Alta de Curso" ,
+	                  						       	  "2 Baja de Curso", 
+	                  							      "3 Consulta de Cursos" ,
+	                  							      "4 Salir"},"GESTION DE CURSOS");
+	            	        			
+	            	                if (lectura1 == "1 Alta de Curso"){opcion1 = 1;}
+	            	                if (lectura1 == "2 Baja de Curso"){opcion1 = 2;}
+	            	                if (lectura1 == "3 Consulta de Cursos"){opcion1 = 3;}
+	            	                if (lectura1 == "4 Salir"){opcion1 = 4;}
 	             	 
-	             	            
+	            	                try {
 	             	 
-	             	           String lectura1 = JOptionPane.showInputDialog(null,"************************\n"
-             							+ "Elige opcion:\n"
-             							+ "1 Alta de Curso\n" 
-             							+ "2 Baja de Curso\n" 
-             							+ "3 Consulta de Cursos\n" 
-             							+  "4.- Salir\n************************");
-
-	             	            
-	             	            try {
-	             	 
-	             	            	opcion1 = Integer.parseInt(lectura1);
-	             	 
+	             	            	
 	             	                switch (opcion1) {
 	             	                    case 1:
 	             	                    	institu1.imprimirCursos();
@@ -128,23 +129,29 @@ public class Principal {
 	                    case 2:
 	                        
 	                    	boolean salir2 = false;
-	             	        int opcion2; //Guardaremos la opcion del usuario
+	             	         //Guardaremos la opcion del usuario
 	             	 
 	             	        while (!salir2) {
+	             	        	int opcion2=5;
+	             	        
+	             	        	  String lectura2 = (String)JOptionPane.showInputDialog(
+	             		        			null,"Seleccione Un Opcion","INSTITUCION", JOptionPane.QUESTION_MESSAGE, null,
+	             		        						
+	             		        			new Object[] {
+	             	      							      "1 Alta de Profesor" ,
+	             	      						       	  "2 Baja de Profesor", 
+	             	      							      "3 Consulta de Profesores" ,
+	             	      							      "4 Asignar Profesor a Curso",
+	             	      							      "5 Salir"},"Administrador de instituciones educativas");
+	             		        			
+	             		                if (lectura2 == "1 Alta de Profesor"){opcion2 = 1;}
+	             		                if (lectura2 == "2 Baja de Profesor"){opcion2 = 2;}
+	             		                if (lectura2 == "3 Consulta de Profesores"){opcion2 = 3;}
+	             		                if (lectura2 == "4 Asignar Profesor a Curso"){opcion2 = 4;}
+	             		                if (lectura2 == "5 Salir"){opcion2 = 5;}
 	             	        	
 	             	        	
-	             	        	String lectura1 = JOptionPane.showInputDialog(null,"************************\n"
-             							+ "Elige opcion:\n"
-             							+ "1 Alta de Profesor\n" 
-             							+ "2 Baja de Profesor\n" 
-             							+ "3 Consulta de Profesores\n" 
-             							+ "4 Asignar Profesor a Curso\n" 
-             							+  "5 Salir\n************************");
-	             	 
-	            
 	             	            try {
-	             	 
-	             	            	opcion2 = Integer.parseInt(lectura1);
 	             	 
 	             	                switch (opcion2) {
 	             	                    case 1:
@@ -181,24 +188,32 @@ public class Principal {
 	                        break;
 	                    case 3:
 	                    	boolean salir3 = false;
-	             	        int opcion3; //Guardaremos la opcion del usuario
+	             	       	//Guardaremos la opcion del usuario
 	             	 
 	             	        while (!salir3) {
 	             	        	
+	             	        	int opcion3=5;
+		             	        
+	             	        	  String lectura3 = (String)JOptionPane.showInputDialog(
+	             		        			null,"Seleccione Un Opcion","INSTITUCION", JOptionPane.QUESTION_MESSAGE, null,
+	             		        						
+	             		        			new Object[] {
+	             	      							      "1 Alta de Alumno" ,
+	             	      						       	  "2 Baja de Alumno", 
+	             	      							      "3 Consulta de Alumnos" ,
+	             	      							      "4 Asignar Alumnos a curso",
+	             	      							      "5 Salir"},"Administrador de instituciones educativas");
+	             		        			
+	             		                if (lectura3 == "1 Alta de Alumno"){opcion3 = 1;}
+	             		                if (lectura3 == "2 Baja de Alumno"){opcion3 = 2;}
+	             		                if (lectura3 == "3 Consulta de Alumnos"){opcion3 = 3;}
+	             		                if (lectura3 == "4 Asignar Alumnos a curso"){opcion3 = 4;}
+	             		                if (lectura3 == "5 Salir"){opcion3 = 5;}
 	             	        	
-	             	        	String lectura1 = JOptionPane.showInputDialog(null,"************************\n"
-             							+ "Elige opcion:\n"
-             							+ "1 Alta de Alumno\n" 
-             							+ "2 Baja de Alumno\n" 
-             							+ "3 Consulta de Alumnos\n" 
-             							+ "4 Asignar Alumnos a curso\n" 
-             							+  "5 Salir\n************************");
-	             	 
 	            
 	             	            try {
 	             	 
-	             	            	opcion3 = Integer.parseInt(lectura1);
-	             	 
+	             	            	
 	             	                switch (opcion3) {
 	             	                    case 1:
 	             	                    	institu1.imprimirAlumnosInstitucion();;

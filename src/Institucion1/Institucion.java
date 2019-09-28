@@ -233,7 +233,7 @@ public class Institucion {
 					 		+ nombreInstitucion;
 					 		
 		        for(Curso o : cursos){
-		            Salida += "\n" + o.imprimiralumnosCurso();           
+		            Salida += "\n" + o.imprimirAlumnos();           
 		}
 		        JOptionPane.showMessageDialog(null, Salida);
 	 }
@@ -247,7 +247,7 @@ public class Institucion {
 						+"\n";
 	        
 	        for(Alumno o : alumnos){
-				Salida += o.imprimirAlumno(); 
+				Salida += o.imprimirAlumnos(); 
 			}
               JOptionPane.showMessageDialog(null, Salida);            
 	 	}
